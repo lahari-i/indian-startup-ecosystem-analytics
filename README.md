@@ -4,9 +4,9 @@
 
 **Source:** Kaggle
 
-**Dataset:** Indian Startups - Funding Data (2018–2021)
+**Dataset:** Indian Startups - Funding Data
 
-**Link:** https://www.kaggle.com/datasets/saumyalahiri/indian-startups-funding-data-20182021
+**Link:** https://www.kaggle.com/datasets/omkargowda/indian-startups-funding-data
 
 ---
 
