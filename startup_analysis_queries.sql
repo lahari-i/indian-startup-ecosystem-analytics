@@ -53,7 +53,7 @@ LIMIT 5;
 -- 4. RETAIL INVESTIGATION
 -- ===========================
 -- Number of retail startups
-SELECT COUNT(*)
+SELECT COUNT(*) as retail_startup
 FROM startup
 WHERE sector = 'retail';
 
