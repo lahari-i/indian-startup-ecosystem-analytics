@@ -4,27 +4,27 @@
 
 # Dataset Overview
 
-Before starting the analysis, I wanted to understand the size of the dataset.
+Before starting the analysis, I wanted to understand the overall size of the dataset.
 
-### Total Records
+### 01. Total Records
 
 ![Total Records](images/01_total_records.png)
 
-There are **2796 funding records** available for analysis.
+There are **2,796 funding records** available for analysis.
 
 ---
 
-### Unique Startups
+### 02. Unique Startups
 
-![Unique Startups](images/2. unique_startups.png)
+![Unique Startups](images/02_unique_startups.png)
 
-The dataset contains 2112 unique startups, which means many companies appear multiple times because they have multiple funding events (each row is one funding event)
+The dataset contains **2,112 unique startups**, which means many companies appear multiple times because each row represents one funding event.
 
 ---
 
-### Unique Sectors
+### 03. Unique Sectors
 
-![Unique Sectors](images/3. unique_sectors.png)
+![Unique Sectors](images/03_unique_sectors.png)
 
 This gives an idea of how diverse the Indian startup ecosystem is before moving into the detailed analysis.
 
@@ -32,35 +32,19 @@ This gives an idea of how diverse the Indian startup ecosystem is before moving 
 
 # Year-wise Analysis
 
-I wanted to see how startup activity changed over the years.
+I wanted to see how startup activity and funding changed over the years.
 
-### Number of startups each year
+### 04. Number of Startups by Year
 
-**Query**
+![Year-wise Startups](images/04_year_startups.png)
 
-```sql
-...
-```
-
-**Output**
-
-![Year Wise Startups](images/04_year_startups.png)
-
-This shows how many distinct startups appeared each year.
+This shows how many unique startups received funding each year.
 
 ---
 
-### Funding over the years
+### 05. Total Funding by Year
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Funding Over Years](images/05_funding_year.png)
+![Funding Over Years](images/05_funding_over_years.png)
 
 Along with the number of startups, I also checked the total funding received each year to understand how investments changed over time.
 
@@ -70,99 +54,59 @@ Along with the number of startups, I also checked the total funding received eac
 
 Next, I wanted to see which sectors dominated the Indian startup ecosystem.
 
-### Top sectors by startup count
+### 06. Top Sectors by Number of Startups
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Sector Count](images/06_sector_count.png)
+![Sector Startups](images/06_sector_startups.png)
 
 Fintech had the highest number of startups, followed by Edtech.
 
-I wanted to check if the sectors with the most startups also received the highest funding.
+I wanted to check if the sectors with the highest number of startups also received the highest funding.
 
 ---
 
-### Top sectors by total funding
+### 07. Top Sectors by Total Funding
 
-**Query**
+![Sector Funding](images/07_sector_total_funding.png)
 
-```sql
-...
-```
+Fintech was still at the top, which made sense.
 
-**Output**
+However, something looked unusual.
 
-![Sector Funding](images/07_sector_funding.png)
+Edtech had one of the highest numbers of startups, yet Retail appeared as the second highest funded sector even though it wasn't among the top sectors by startup count.
 
-Fintech was still at the top, so that made sense.
-
-But something looked unusual.
-
-Edtech had one of the highest numbers of startups, yet Retail appeared as the second highest funded sector even though it wasn't even among the top sectors by startup count.
-
-So I decided to investigate Retail separately.
+So I decided to investigate the Retail sector separately.
 
 ---
 
 ## Retail Investigation
 
-### Number of Retail startups
+### 08. Number of Retail Startups
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Retail Count](images/08_retail_count.png)
+![Retail Startups](images/08_retail_startup.png)
 
 Retail had only **25 startups**, which seemed too few for such a huge funding amount.
 
-So I checked all the Retail funding records.
+So I checked all the funding records belonging to the Retail sector.
 
 ---
 
-### Retail funding records
+### 09. Retail Funding Records
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Retail Records](images/09_retail_records.png)
+![Retail Records](images/09_retail.png)
 
 Here I found that **Reliance Retail Ventures Ltd.** alone had received around **$70 billion**.
 
-That immediately looked like an outlier and explained why Retail ranked so high in the funding analysis.
+That immediately looked like an outlier and explained why Retail ranked so highly in the funding analysis.
 
 ---
 
 # Fintech Investigation
 
-Since Fintech had the highest funding overall, I wanted to see which companies contributed the most.
+Since Fintech had the highest total funding, I wanted to see which companies contributed the most.
 
-### Top funded Fintech startups
+### 10. Company-wise Funding in Fintech
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Fintech Funding](images/10_fintech.png)
+![Company Funding](images/10_company_total_funding.png)
 
 Once again, one company clearly stood out.
 
@@ -172,81 +116,53 @@ I wanted to check whether this amount came from multiple funding rounds or just 
 
 ---
 
-### Alteria Capital records
+### 11. Alteria Capital Funding Record
 
-**Query**
-
-```sql
-...
-```
-
-**Output**
-
-![Alteria](images/11_alteria.png)
+![Alteria Capital](images/11_alteria_capital.png)
 
 It turned out to be only **one funding event**.
 
-If this amount had been spread across multiple rounds, it would have been easier to justify.
-
-Since it came from a single record, it looked like an outlier.
+If this amount had been spread across multiple funding rounds, it would have been easier to justify. Since it came from a single record, it looked like an outlier.
 
 ---
 
-### Contribution to Fintech funding
-
-**Query**
-
-```sql
-...
-```
-
-**Output**
+### 12. Alteria Capital's Contribution to Fintech Funding
 
 ![Alteria Percentage](images/12_alteria_percentage.png)
 
 Alteria Capital alone contributed around **96%** of the total funding received by the Fintech sector.
 
-This confirmed that the sector's total funding is heavily influenced by one extremely large funding event.
+This confirmed that the sector's total funding is heavily influenced by one exceptionally large funding event.
 
 ---
 
-# Top Funded Companies
+# Overall Company Funding
 
-### Query
+### 13. Top Funded Companies
 
-```sql
-...
-```
-
-**Output**
-
-![Top Companies](images/13_top_companies.png)
+![Top Funded Companies](images/13_top_funded_companies.png)
 
 The same pattern appears here as well.
 
-The top companies are dominated by Alteria Capital and Reliance Retail Ventures Ltd., confirming that these large funding events significantly influence the overall funding analysis.
+The highest funded companies are dominated by Alteria Capital and Reliance Retail Ventures Ltd., confirming that these unusually large funding events have a major impact on the overall funding analysis.
 
 ---
 
 # City Analysis
 
-Next, I compared cities based on the number of startups and the total funding they received.
+Next, I compared cities based on both the number of startups and the total funding they received.
 
-### Cities with most startups
+### 14. Cities with the Highest Number of Startups
 
-**Output**
-
-![City Count](images/14_city_count.png)
+![City Startups](images/14_city_no_startups.png)
 
 Bengaluru had the highest number of startups, followed by Mumbai.
 
 ---
 
-### Cities with highest funding
+### 15. Cities with the Highest Total Funding
 
-**Output**
-
-![City Funding](images/15_city_funding.png)
+![City Funding](images/15_city_total_funding.png)
 
 This time the ranking changed.
 
@@ -258,33 +174,29 @@ That looked interesting, so I explored it further.
 
 ---
 
-# Mumbai Investigation
+## Mumbai Investigation
 
-### Top funded startups in Mumbai
+### 16. Company-wise Funding in Mumbai
 
-**Output**
+![Mumbai Funding](images/16_company_funding.png)
 
-![Mumbai](images/16_mumbai.png)
-
-Alteria Capital and Reliance Retail Ventures Ltd. together contributed most of Mumbai's funding.
+Alteria Capital and Reliance Retail Ventures Ltd. together contributed most of Mumbai's total funding.
 
 ---
 
-### Contribution
+### 17. Contribution of Alteria Capital and Reliance Retail
 
-**Output**
+![Mumbai Percentage](images/17_alteria_reliance_funding.png)
 
-![Mumbai Percentage](images/17_mumbai_percentage.png)
-
-Together they contributed around **96%** of Mumbai's total funding, explaining why Mumbai ranked first despite having fewer startups than Bengaluru.
+Together, these two companies contributed around **96%** of Mumbai's total funding, explaining why Mumbai ranked first despite having fewer startups than Bengaluru.
 
 ---
 
-# California Investigation
+## California Investigation
 
-### Output
+### 18. Funding Records in California
 
-![California](images/18_california.png)
+![California Investigation](images/18_california_investigation.png)
 
 California had only **five companies**, but a few funding events of around **$3 billion** each were enough for it to appear among the top funded cities.
 
@@ -292,29 +204,33 @@ California had only **five companies**, but a few funding events of around **$3 
 
 # Funding Stage Analysis
 
-I wanted to understand how funding varied across different funding stages.
+I also wanted to understand how funding varied across different funding stages.
 
-### Total funding by stage
+### 19. Total Funding by Stage
 
-**Output**
-
-![Stage Funding](images/19_stage_total.png)
+![Stage Funding](images/19_stage_funding.png)
 
 Debt Financing had the highest total funding.
 
-However, I already knew Alteria Capital belonged to this stage, so I suspected the total was influenced by the outlier.
+However, I already knew that Alteria Capital belonged to this stage, so I suspected the total funding was heavily influenced by that single outlier.
 
 ---
 
-### Average funding by stage
+### 20. Total Funding Across Funding Stages
 
-**Output**
+![Stage Total Funding](images/20_stage_total_funding.png)
 
-![Stage Average](images/20_stage_average.png)
+This gives an overall comparison of how much funding each investment stage received.
+
+---
+
+### 21. Average Funding and Number of Funding Rounds
+
+![Average Funding](images/21_avg_funding_rounds.png)
 
 Instead of relying only on total funding, I also calculated the average funding amount along with the number of funding rounds.
 
-I felt this gives a better representation because it considers the sample size as well.
+I felt this gives a better representation because it also considers the sample size.
 
 Even here, Debt Financing still had the highest average funding, although it is still influenced by Alteria Capital's exceptionally large funding amount.
 
@@ -322,17 +238,25 @@ Even here, Debt Financing still had the highest average funding, although it is 
 
 # Company Funding History
 
-### Byju's
+### 22. Companies with the Most Funding Records
 
-![Byjus](images/21_byjus.png)
+![Companies with Most Funding Records](images/22_companies_most_funding.png)
 
-Byju's appeared multiple times across different years, showing multiple funding events over time.
+This shows the companies that appeared most frequently in the dataset, indicating multiple funding events over the years.
 
 ---
 
-### BharatPe
+### 23. Byju's Funding History
 
-![BharatPe](images/22_bharatpe.png)
+![Byju's](images/23_byjus.png)
+
+Byju's appeared multiple times across different years, showing that it raised funding through several funding rounds over time.
+
+---
+
+### 24. BharatPe Funding History
+
+![BharatPe](images/24_bharatpe.png)
 
 Similarly, BharatPe also received funding across multiple years, reflecting its growth over time.
 
@@ -340,6 +264,8 @@ Similarly, BharatPe also received funding across multiple years, reflecting its 
 
 # Data Quality Check
 
-![Data Quality](images/23_data_quality.png)
+### 25. Null and Blank Values in the Stage Column
 
-Finally, I checked the number of null and blank values in the `stage` column to verify that the imported data matched the cleaned dataset.
+![Data Quality](images/25_nulls_and_blanks.png)
+
+Finally, I checked the number of null and blank values in the `stage` column to verify that the imported data matched the cleaned dataset and that no unexpected missing values were introduced during the import process.
