@@ -12,19 +12,18 @@
 
 ## Objective
 
-The goal of this project is to clean, standardize, and analyze startup funding data collected between **2018 and 2021**.
+The goal of this project is to clean, standardize, and analyze Indian startup funding data collected between **2018 and 2021**.
 
-The dataset contains startup funding information collected over multiple years with inconsistent schemas, naming conventions, currencies, and missing values. The project focuses on preparing a clean and consistent dataset for SQL-based business analysis.
+The original dataset contained multiple yearly CSV files with inconsistent schemas, company names, currencies, missing values, and duplicate records. This project focuses on preparing a clean and consistent dataset using **Python (Pandas)** and performing business-focused exploratory analysis using **MySQL**.
 
-The project answers questions such as:
+The analysis answers questions such as:
 
 - How has startup funding changed over the years?
-- Which sectors received the highest investment?
+- Which sectors attracted the highest investment?
 - Which cities have the largest startup ecosystem?
-- Which startups raised the most funding?
+- Which companies raised the highest funding?
 - How does funding vary across different funding stages?
-
-The project includes **data cleaning and preprocessing using Python (Pandas)** followed by **SQL-based exploratory analysis**.
+- Are there any outliers influencing the results?
 
 ---
 
@@ -40,7 +39,7 @@ The project includes **data cleaning and preprocessing using Python (Pandas)** f
 
 ## Project Workflow
 
-```
+```text
 Raw CSV Files
       ↓
 Schema Comparison
@@ -60,23 +59,42 @@ Export Clean Dataset
 Import into MySQL
       ↓
 SQL Analysis
+      ↓
+Insight Report
 ```
 
 ---
 
 ## Repository Structure
 
-```
+```text
 indian-startup-ecosystem-analytics
 │
-├── notebook/
-│   └── Startup_Data_Cleaning.ipynb
+├── images/
+│   ├── 01_total_records.png
+│   ├── ...
+│   └── 25_nulls_and_blanks.png
 │
-├── data/
-│   └── startup_cleaned.csv
-│
+├── Startup_Data_Cleaning_and_Preprocessing.ipynb
+├── Startup_Data_Cleaning_and_Preprocessing.pdf
+├── startup_cleaned.csv
+├── startup_analysis_queries.sql
+├── sql_analysis_insight_report.md
 └── README.md
 ```
+
+---
+
+## Files Included
+
+| File | Description |
+|------|-------------|
+| `Startup_Data_Cleaning_and_Preprocessing.ipynb` | Complete data cleaning and preprocessing workflow using Pandas |
+| `Startup_Data_Cleaning_and_Preprocessing.pdf` | PDF version of the notebook |
+| `startup_cleaned.csv` | Final cleaned dataset used for SQL analysis |
+| `startup_analysis_queries.sql` | SQL queries used for exploratory analysis |
+| `sql_analysis_insight_report.md` | Query outputs, screenshots, observations, and investigation process |
+| `images/` | Screenshots of SQL query results used in the insight report |
 
 ---
 
@@ -85,14 +103,23 @@ indian-startup-ecosystem-analytics
 - ✅ Data Cleaning & Preprocessing Completed
 - ✅ Dataset Standardized
 - ✅ Clean Dataset Generated
-- ⏳ SQL Scripts (Coming Soon)
-- ⏳ SQL Analysis Documentation (Coming Soon)
+- ✅ SQL Exploratory Analysis Completed
+- ✅ SQL Insight Report Completed
+
+---
+
+## Key Highlights
+
+- Cleaned and standardized **2,796 funding records**
+- Analyzed **2,112 unique startups**
+- Explored funding trends across **2018–2021**
+- Investigated funding by sector, city, company, and funding stage
+- Identified major outliers (e.g., Alteria Capital and Reliance Retail Ventures Ltd.) and analyzed their impact on overall funding patterns
 
 ---
 
 ## Future Improvements
 
-- Add complete SQL scripts
-- Create Power BI dashboard
-- Add data visualizations
-- Build an interactive dashboard
+- Build an interactive Power BI dashboard
+- Add visualizations using Python
+- Perform statistical analysis on funding trends
