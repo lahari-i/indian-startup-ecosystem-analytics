@@ -8,7 +8,7 @@ Before starting the analysis, I wanted to understand the size of the dataset.
 
 ### Total Records
 
-![Total Records](images/1. total_records.png)
+![Total Records](images/01_total_records.png)
 
 There are **2796 funding records** available for analysis.
 
